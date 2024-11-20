@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  plex:
+    image: linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Pacific/Tahiti
+      - VERSION=docker
+    volumes:
+      - /media/your_user/DOCKER-STORAGE/dock_serv_plex/config:/config  # Plex configuration files
+      - /media/your_user/DOCKER-STORAGE/SHARE/ANIME:/movies  # Media library
+      - /media/your_user/DOCKER-STORAGE/dock_serv_plex/transcode:/transcode  # Transcoding directory
+    restart: unless-stopped
