@@ -5,12 +5,13 @@ This repository provides a ready-to-use Docker Compose configuration for deployi
 PUID and PGID: Use your system's user ID and group ID
 
 ## Volumes:
-/config: Stores Plex configuration files (persistent across container restarts).
-/movies: Points to the directory where your media files are stored.
-/transcode: Temporary directory used during video transcoding.
+- /config: Stores Plex configuration files (persistent across container restarts).
+- /movies: Points to the directory where your media files are stored.
+- /transcode: Temporary directory used during video transcoding.
 
 ## Commands to Deploy Plex
 Start the Container : 
+
 docker-compose -f /media/your_user/DOCKER-STORAGE/dock_serv_plex/docker-compose.yml up -d
 
 ## Access Plex Server:
@@ -24,11 +25,17 @@ Note : Plex will index your media files. Depending on your library size, this ma
 ## Boosting Server Cache for Stability
 If you experience frequent buffering or interruptions due to weak Wi-Fi, you can improve the server's performance by increasing the cache size.
 1) Locate Plex’s Preferences.xml file in the /config directory:
+
 config\Library\Application Support\Plex Media Server
+
 2) Edit the file and add the following line (or update if it exists): 
+
 <Setting id="TranscoderBufferSize" value="120"/>
+
 "This increases the transcoder's buffer size to 120 seconds."
+
 3) Restart the Plex container:
+
 docker restart plex
 
 ## Additional Tips
