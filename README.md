@@ -29,8 +29,7 @@ If you experience frequent buffering or interruptions due to weak Wi-Fi, you can
 config\Library\Application Support\Plex Media Server
 
 2) Edit the file and add the following line (or update if it exists): 
-
-<Setting id="TranscoderBufferSize" value="120"/>
+TranscoderBufferSize="120"
 
 "This increases the transcoder's buffer size to 120 seconds."
 
